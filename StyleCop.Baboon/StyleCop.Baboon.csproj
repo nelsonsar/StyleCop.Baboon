@@ -32,7 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="Microsoft.Build.Framework">
-      <HintPath>packages\Microsoft.Build.Framework.dll</HintPath>
+      <HintPath>..\packages\Microsoft.Build.Framework.dll</HintPath>
     </Reference>
     <Reference Include="StyleCop.CSharp">
       <HintPath>..\packages\StyleCop.Rules.4.7.49\lib\net40\StyleCop.CSharp.dll</HintPath>
