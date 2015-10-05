@@ -1,0 +1,5 @@
+/*/packages/*.dll
+!/*/packages/Microsoft.Build.Framework.dll
+StyleCop.Baboon.userprefs
+bin
+obj
