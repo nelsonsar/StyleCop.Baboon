@@ -9,4 +9,4 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyCopyright ("Copyright © Nelson Senna 2015")]
 [assembly: AssemblyTrademark ("")]
 [assembly: AssemblyCulture ("")]
-[assembly: AssemblyVersion ("0.0.1")]
+[assembly: AssemblyVersion ("1.0.*")]
