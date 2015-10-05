@@ -9,3 +9,6 @@
 StyleCop.Baboon.userprefs
 bin
 obj
+
+# NUnit
+TestResult.xml
