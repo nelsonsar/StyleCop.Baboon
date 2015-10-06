@@ -8,25 +8,61 @@
 
     public class MainClass
     {
-        public static void Main(string[] args)
+        private const int MissingArgumentsErrorCode = 1;
+        private const int SettingsFileDoesNotExistErrorCode = 2;
+        private const int InvalidPathToAnalyzeErrorCode = 3;
+
+        public static int Main(string[] args)
         {
-            var settings = "";
-            var projectPath = "";
-            ProcessFile(settings, projectPath);
+            if (args.Length < 2)
+            {
+                PrintUsage();
+
+                return MissingArgumentsErrorCode;
+            }
+
+            var settings = args[0];
+            var projectPath = args[1];
+
+            return Analyze(settings, projectPath);
         }
 
-        private static int ProcessFile(string settings, string projectPath)
+        private static int Analyze(string settings, string projectPath)
         {
+            var fileSystemHandler = new FileSystemHandler();
+            var outputWriter = new StandardOutputWriter();
+
+            if (false == fileSystemHandler.Exists(settings))
+            {
+                outputWriter.WriteLineWithSeparator("Given settings file does not exist. Exiting...", string.Empty);
+
+                return SettingsFileDoesNotExistErrorCode;
+            }
+
+            if (false == fileSystemHandler.Exists(projectPath))
+            {
+                outputWriter.WriteLineWithSeparator("Given path to analyze does not exist. Exiting...", string.Empty);
+
+                return InvalidPathToAnalyzeErrorCode;
+            }
+
             var analyzer = new StyleCopAnalyzer();
             var projectFactory = new ProjectFactory(new FileSystemHandler());
             var project = projectFactory.CreateFromPathWithCustomSettings(projectPath, settings);
             var violations = analyzer.GetViolationsFromProject(project);
 
-            var renderer = new ConsoleRenderer(new StandardOutputWriter());
+            var renderer = new ConsoleRenderer(outputWriter);
 
             renderer.RenderViolationList(violations);
 
             return 0;
+        }
+
+        private static void PrintUsage()
+        {
+            System.Console.WriteLine(string.Empty);
+            System.Console.WriteLine("Usage:");
+            System.Console.WriteLine("StyleCop.Baboon.exe [stylecop-settings-path] [path-to-analyze]");
         }
     }
 }

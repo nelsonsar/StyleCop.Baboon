@@ -15,5 +15,11 @@
             System.Console.WriteLine(content);
             System.Console.ResetColor();
         }
+
+        public void WriteLineWithSeparator(string content, string separator)
+        {
+            System.Console.WriteLine(separator);
+            System.Console.WriteLine(content);
+        }
     }
 }

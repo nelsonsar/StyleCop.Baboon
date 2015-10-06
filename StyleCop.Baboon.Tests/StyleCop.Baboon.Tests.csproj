@@ -42,6 +42,7 @@
     <Compile Include="Analyzer\ProjectFactoryTest.cs" />
     <Compile Include="Renderer\ConsoleRendererTest.cs" />
     <Compile Include="TestHelper\ViolationSource.cs" />
+    <Compile Include="ProgramTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
