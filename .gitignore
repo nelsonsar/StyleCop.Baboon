@@ -12,3 +12,6 @@ obj
 
 # NUnit
 TestResult.xml
+
+#StyleCop violations file
+StyleCopViolations.xml
