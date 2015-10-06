@@ -17,10 +17,7 @@ namespace StyleCop.Baboon.Tests
         public void ExitsWithErrorWhenArgumentIsNotPresent()
         {
             var stringBuilder = new StringBuilder();
-            stringBuilder.Append(Environment.NewLine);
-            stringBuilder.Append("Usage:");
-            stringBuilder.Append(Environment.NewLine);
-            stringBuilder.Append("StyleCop.Baboon.exe [stylecop-settings-path] [path-to-analyze]");
+            stringBuilder.Append("Usage: StyleCop.Baboon.exe [stylecop-settings-path] [path-to-analyze]");
             stringBuilder.Append(Environment.NewLine);
             var expectedMessage = stringBuilder.ToString();
 
