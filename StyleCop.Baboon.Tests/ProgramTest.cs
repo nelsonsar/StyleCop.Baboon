@@ -1,8 +1,9 @@
 namespace StyleCop.Baboon.Tests
 {
     using System;
-    using NUnit.Framework;
     using System.IO;
+    using System.Text;
+    using NUnit.Framework;
 
     [TestFixture]
     public class ProgramTest
@@ -15,10 +16,14 @@ namespace StyleCop.Baboon.Tests
         [Test]
         public void ExitsWithErrorWhenArgumentIsNotPresent()
         {
-            var expectedMessage = @"
-Usage:
-StyleCop.Baboon.exe [stylecop-settings-path] [path-to-analyze]
-";
+            var stringBuilder = new StringBuilder();
+            stringBuilder.Append(Environment.NewLine);
+            stringBuilder.Append("Usage:");
+            stringBuilder.Append(Environment.NewLine);
+            stringBuilder.Append("StyleCop.Baboon.exe [stylecop-settings-path] [path-to-analyze]");
+            stringBuilder.Append(Environment.NewLine);
+            var expectedMessage = stringBuilder.ToString();
+
             this.RedirectOutput();
             var result = MainClass.Main(new string[] { "." });
             var message = this.ReadGeneratedOutput();
@@ -30,9 +35,12 @@ StyleCop.Baboon.exe [stylecop-settings-path] [path-to-analyze]
         [Test]
         public void ExitsWithErrorWhenStyleCopSettingsSpecifiedPathDoesNotExist()
         {
-            var expectedMessage = @"
-Given settings file does not exist. Exiting...
-";
+            var stringBuilder = new StringBuilder();
+            stringBuilder.Append(Environment.NewLine);
+            stringBuilder.Append("Given settings file does not exist. Exiting...");
+            stringBuilder.Append(Environment.NewLine);
+            var expectedMessage = stringBuilder.ToString();
+
             this.RedirectOutput();
             var result = MainClass.Main(new string[] { "/foo/StyleCop.Settings", "." });
             var message = this.ReadGeneratedOutput();
@@ -44,9 +52,12 @@ Given settings file does not exist. Exiting...
         [Test]
         public void ExitsWithErrorWhenSpecifiedPathToAnalyzeDoesNotExist()
         {
-            var expectedMessage = @"
-Given path to analyze does not exist. Exiting...
-";
+            var stringBuilder = new StringBuilder();
+            stringBuilder.Append(Environment.NewLine);
+            stringBuilder.Append("Given path to analyze does not exist. Exiting...");
+            stringBuilder.Append(Environment.NewLine);
+            var expectedMessage = stringBuilder.ToString();
+
             this.RedirectOutput();
             var dir = Directory.GetCurrentDirectory();
             var styleCopSettingsPath = string.Format("{0}{1}", dir, "/../../../Settings.StyleCop");
