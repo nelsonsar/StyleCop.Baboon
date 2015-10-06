@@ -13,7 +13,7 @@ nuget restore
 msbuild "StyleCop.Baboon.sln"
 ```
 
-On Linux and OSX you'll need [Mono][]:
+On Linux and OSX you'll need [Mono](http://www.mono-project.com/download/):
 
 ```
 nuget restore
