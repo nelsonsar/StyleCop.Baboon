@@ -1,25 +1,54 @@
-# StyleCop.Baboon
+# StyleCop.Baboon - StyleCop working anywhere
 
-A command line runner for StyleCop that works for all.
+StyleCop.Baboon helps you to fix [StyleCop](https://stylecop.codeplex.com/) problems without an IDE and from any OS that runs C#.
 
 [![Build status](https://ci.appveyor.com/api/projects/status/qs2k50hblbc4b603/branch/master?svg=true)](https://ci.appveyor.com/project/nelsonsar/stylecop-baboon/branch/master) [![Build Status](https://travis-ci.org/nelsonsar/StyleCop.Baboon.svg?branch=master)](https://travis-ci.org/nelsonsar/StyleCop.Baboon)
 
-## Building
+## <a name="installation"></a>Installation / Usage
 
-On Windows you can use ```msbuild``` as you would for a normal project:
+1. Clone this repository and build the solution.
 
-```
-nuget restore
-msbuild "StyleCop.Baboon.sln"
+    On Windows:
+
+    ```sh
+    $ nuget restore
+    $ msbuild "StyleCop.Baboon.sln"
+    ```
+
+    On Linux and OSX after you have installed [Mono](http://www.mono-project.com/download/):
+
+    ```sh
+    $ nuget restore
+    $ xbuild "StyleCop.Baboon.sln"
+    ```
+
+2. Use your custom StyleCop settings to analyze a file or a directory.
+
+    ```
+    $ [mono] StyleCop.Baboon.exe Settings.StyleCop StyleCop.Baboon/Program.cs
+    ```
+
+3. Fix StyleCop's complaints and stay on the line to avoid more complaints.
+
+## Global installation of StyleCop.Baboon (Linux only)
+
+1. Follow instructions [here](#installation).
+
+2. On the command line:
+
+```sh
+$ mkdir -p /usr/local/opt/StyleCop.Baboon
+$ cp [dir-that-baboon-was-built]/bin/Debug/* /usr/local/opt/StyleCop.Baboon/
+$ printf '%s\n%s' '#!/bin/bash' 'exec $(which mono) /usr/local/opt/StyleCop.Baboon/StyleCop.Baboon.exe "$@"' > /usr/local/bin/StyleCop.Baboon
+$ chmod a+x /usr/local/bin/StyleCop.Baboon
 ```
 
-On Linux and OSX you'll need [Mono](http://www.mono-project.com/download/):
+3. Now ```StyleCop.Baboon``` should be available in your ```$PATH```!
 
-```
-nuget restore
-xbuild "StyleCop.Baboon.sln"
-```
+## Author
+
+Nelson Senna - [https://twitter.com/nelson_senna](https://twitter.com/nelson_senna) - [http://nelsonsar.github.io](http://nelsonsar.github.io)
 
 ## License
 
-MIT
+StyleCop.Baboon is licensed under the MIT License - see the LICENSE file for details
