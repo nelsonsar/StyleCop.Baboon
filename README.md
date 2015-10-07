@@ -22,7 +22,7 @@ StyleCop.Baboon helps you to fix [StyleCop](https://stylecop.codeplex.com/) prob
     $ xbuild "StyleCop.Baboon.sln"
     ```
 
-2. Use your custom StyleCop settings to analyze a file or a directory.
+2. Use your custom StyleCop settings to analyze a file or a directory. This will generate ```StyleCopViolations.xml``` file.
 
     ```
     $ [mono] StyleCop.Baboon.exe Settings.StyleCop StyleCop.Baboon/Program.cs
@@ -36,14 +36,20 @@ StyleCop.Baboon helps you to fix [StyleCop](https://stylecop.codeplex.com/) prob
 
 2. On the command line:
 
-```sh
-$ mkdir -p /usr/local/opt/StyleCop.Baboon
-$ cp [dir-that-baboon-was-built]/bin/Debug/* /usr/local/opt/StyleCop.Baboon/
-$ printf '%s\n%s' '#!/bin/bash' 'exec $(which mono) /usr/local/opt/StyleCop.Baboon/StyleCop.Baboon.exe "$@"' > /usr/local/bin/StyleCop.Baboon
-$ chmod a+x /usr/local/bin/StyleCop.Baboon
-```
+    ```sh
+    $ mkdir -p /usr/local/opt/StyleCop.Baboon
+    $ cp [dir-that-baboon-was-built]/bin/Debug/* /usr/local/opt/StyleCop.Baboon/
+    $ printf '%s\n%s' '#!/bin/bash' 'exec $(which mono) /usr/local/opt/StyleCop.Baboon/StyleCop.Baboon.exe "$@"' > /usr/local/bin/StyleCop.Baboon
+    $ chmod a+x /usr/local/bin/StyleCop.Baboon
+    ```
 
 3. Now ```StyleCop.Baboon``` should be available in your ```$PATH```!
+
+## Using along with Jenkins
+
+This was the motivation to create this project!
+
+Jenkins [Violations plugin](https://wiki.jenkins-ci.org/display/JENKINS/Violations) supports StyleCop and you can use StyleCop.Baboon to generate the xml file that will be used by the plugin.
 
 ## Author
 
