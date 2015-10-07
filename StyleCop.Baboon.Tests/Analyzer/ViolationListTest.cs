@@ -40,5 +40,13 @@
 
             Assert.AreEqual(expectedNumberOfViolationsPerFile, violationsFound);
         }
+
+        [Test]
+        public void Empty()
+        {
+            this.list.AddViolationToFile(ViolationSource.ViolationFileName, ViolationSource.FirstViolation);
+
+            Assert.False(this.list.Empty);
+        }
     }
 }

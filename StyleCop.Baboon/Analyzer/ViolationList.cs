@@ -13,6 +13,14 @@
             this.violations = new Dictionary<string, IList<Violation>>();
         }
 
+        public bool Empty
+        {
+            get
+            {
+                return this.violations.Count == 0;
+            }
+        }
+
         public IDictionary<string, IList<Violation>> Violations
         {
             get

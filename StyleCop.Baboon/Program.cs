@@ -8,9 +8,11 @@
 
     public class MainClass
     {
+        private const int NoViolationsFound = 0;
         private const int MissingArgumentsErrorCode = 1;
         private const int SettingsFileDoesNotExistErrorCode = 2;
         private const int InvalidPathToAnalyzeErrorCode = 3;
+        private const int ViolationsFound = 4;
 
         public static int Main(string[] args)
         {
@@ -55,7 +57,12 @@
 
             renderer.RenderViolationList(violations);
 
-            return 0;
+            if (violations.Empty)
+            {
+                return NoViolationsFound;
+            }
+
+            return ViolationsFound;
         }
 
         private static void PrintUsage()
