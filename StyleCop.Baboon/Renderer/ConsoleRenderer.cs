@@ -14,10 +14,13 @@
 
         public void RenderViolationList(ViolationList violationList)
         {
+            this.outputWriter.WriteLine("StyleCop.Baboon by Nelson Senna.");
+            var totalViolations = 0;
+
             foreach (var violation in violationList.Violations)
             {
                 var fileName = violation.Key;
-                this.outputWriter.WriteLine(string.Format("File: {0}", fileName));
+                this.outputWriter.WriteLineWithSeparator(string.Format("File: {0}", fileName), string.Empty);
 
                 foreach (var v in violation.Value)
                 {
@@ -26,8 +29,21 @@
 
                 var numberOfViolations = violationList.GetTotalViolationsForFile(fileName);
                 this.outputWriter.WriteLine(string.Format("Violations found: {0}", numberOfViolations));
-                this.outputWriter.WriteLine(string.Empty);
+
+                totalViolations += numberOfViolations;
             }
+
+            string summary;
+            if (totalViolations == 0)
+            {
+                summary = string.Format("No violations found! Great job!");
+            }
+            else
+            {
+                summary = string.Format("Files analyzed: {0}, Total violations: {1}", violationList.Violations.Keys.Count, totalViolations);
+            }
+
+            this.outputWriter.WriteLineWithSeparator(summary, string.Empty);
         }
     }
 }
