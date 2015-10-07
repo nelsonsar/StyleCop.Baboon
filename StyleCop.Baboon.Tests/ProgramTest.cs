@@ -68,7 +68,7 @@ namespace StyleCop.Baboon.Tests
         private void RedirectOutput()
         {
             this.output = new MemoryStream();
-            this.outputWriter = new StreamWriter(output);
+            this.outputWriter = new StreamWriter(this.output);
             this.currentOutputWriter = System.Console.Out;
 
             System.Console.SetOut(this.outputWriter);
@@ -76,7 +76,7 @@ namespace StyleCop.Baboon.Tests
 
         private string ReadGeneratedOutput()
         {
-            this.outputReader = new StreamReader(output);
+            this.outputReader = new StreamReader(this.output);
             this.outputWriter.Flush();
             this.output.Seek(0, SeekOrigin.Begin);
             var message = this.outputReader.ReadToEnd();
