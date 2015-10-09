@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     using System.Linq;
 
     public class ViolationList
@@ -21,11 +22,19 @@
             }
         }
 
-        public IDictionary<string, IList<Violation>> Violations
+        public ReadOnlyDictionary<string, IList<Violation>> Violations
         {
             get
             {
-                return this.violations;
+                return new ReadOnlyDictionary<string, IList<Violation>>(this.violations);
+            }
+        }
+
+        public int TotalFilesAnalyzed
+        {
+            get
+            {
+                return this.violations.Keys.Count;
             }
         }
 

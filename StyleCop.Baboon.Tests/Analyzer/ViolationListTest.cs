@@ -48,5 +48,14 @@
 
             Assert.False(this.list.Empty);
         }
+
+        [Test]
+        public void TotalFilesAnalyzedReturnsNumberOfFilesInDictionary()
+        {
+            this.list.AddViolationToFile(ViolationSource.ViolationFileName, ViolationSource.FirstViolation);
+            this.list.AddViolationToFile(ViolationSource.ViolationFileName, ViolationSource.SecondViolation);
+
+            Assert.AreEqual(1, this.list.TotalFilesAnalyzed);
+        }
     }
 }
