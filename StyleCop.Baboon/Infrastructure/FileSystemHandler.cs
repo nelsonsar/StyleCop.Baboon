@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.IO;
+    using System.Linq;
     using StyleCop.Baboon.Analyzer;
 
     public class FileSystemHandler : IFileSystemHandler
@@ -33,7 +34,7 @@
                 return Directory.EnumerateFiles(path, SourceFileExtensionPattern, SearchOption.AllDirectories);
             }
 
-            return new List<string>();
+            return Enumerable.Empty<string>();
         }
     }
 }

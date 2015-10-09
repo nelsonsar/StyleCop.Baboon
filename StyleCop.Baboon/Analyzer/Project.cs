@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
 
     public class Project
     {
@@ -24,11 +25,11 @@
             }
         }
 
-        public IList<string> Files
+        public ReadOnlyCollection<string> Files
         {
             get
             {
-                return this.projectFiles;
+                return new ReadOnlyCollection<string>(this.projectFiles);
             }
         }
 

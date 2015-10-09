@@ -67,7 +67,7 @@
 
         private static void PrintUsage()
         {
-            System.Console.WriteLine("Usage: StyleCop.Baboon.exe [stylecop-settings-path] [path-to-analyze]");
+            Console.WriteLine("Usage: StyleCop.Baboon.exe [stylecop-settings-path] [path-to-analyze]");
         }
     }
 }
