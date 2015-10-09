@@ -4,7 +4,7 @@
 **/packages/*
 # except build/, which is used as an MSBuild target.
 !**/packages/build/
-!**/packages/Microsoft.Build.Framework.dll
+!**/library/Microsoft.Build.Framework.dll
 
 StyleCop.Baboon.userprefs
 bin
