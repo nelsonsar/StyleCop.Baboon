@@ -4,6 +4,6 @@
 
     public interface IProjectFactory
     {
-        Project CreateFromPathWithCustomSettings(string path, string settings);
+        Project CreateFromPathWithCustomSettings(string path, string settings, string[] ignoredPaths);
     }
 }
