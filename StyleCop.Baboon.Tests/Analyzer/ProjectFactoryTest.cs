@@ -14,6 +14,7 @@
         private const string Settings = "Settings.StyleCop";
         private const string SingleFileProjectPath = FirstFile;
         private const string MultiFileProjectPath = "./src";
+        private const string IgnoredPath = "./obj";
 
         private Mock<IFileSystemHandler> fileSystemHandler;
 
@@ -32,7 +33,7 @@
 
             var factory = new ProjectFactory(this.fileSystemHandler.Object);
 
-            var project = factory.CreateFromPathWithCustomSettings(SingleFileProjectPath, Settings);
+            var project = factory.CreateFromPathWithCustomSettings(SingleFileProjectPath, Settings, new []{ IgnoredPath });
 
             this.AssertProjectsAreEqual(expectedProject, project);
         }
@@ -49,7 +50,7 @@
 
             var factory = new ProjectFactory(this.fileSystemHandler.Object);
 
-            var project = factory.CreateFromPathWithCustomSettings(MultiFileProjectPath, Settings);
+            var project = factory.CreateFromPathWithCustomSettings(MultiFileProjectPath, Settings, new []{ IgnoredPath });
 
             this.AssertProjectsAreEqual(expectedProject, project);
         }

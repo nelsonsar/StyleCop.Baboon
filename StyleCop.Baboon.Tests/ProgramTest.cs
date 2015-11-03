@@ -17,7 +17,7 @@ namespace StyleCop.Baboon.Tests
         public void ExitsWithErrorWhenArgumentIsNotPresent()
         {
             var stringBuilder = new StringBuilder();
-            stringBuilder.Append("Usage: StyleCop.Baboon.exe [stylecop-settings-path] [path-to-analyze]");
+            stringBuilder.Append("Usage: StyleCop.Baboon.exe [stylecop-settings-path] [path-to-analyze] [ignored-paths]");
             stringBuilder.Append(Environment.NewLine);
             var expectedMessage = stringBuilder.ToString();
 
@@ -39,7 +39,7 @@ namespace StyleCop.Baboon.Tests
             var expectedMessage = stringBuilder.ToString();
 
             this.RedirectOutput();
-            var result = MainClass.Main(new string[] { "/foo/StyleCop.Settings", "." });
+            var result = MainClass.Main(new string[] { "/foo/StyleCop.Settings", ".", "./obj" });
             var message = this.ReadGeneratedOutput();
 
             Assert.AreEqual(2, result);
@@ -57,8 +57,8 @@ namespace StyleCop.Baboon.Tests
 
             this.RedirectOutput();
             var dir = Directory.GetCurrentDirectory();
-            var styleCopSettingsPath = string.Format("{0}{1}", dir, "/../../../Settings.StyleCop");
-            var result = MainClass.Main(new string[] { styleCopSettingsPath, "/foo/bar" });
+            var styleCopSettingsPath = string.Format("{0}{1}", dir, "/../../../Settings.StyleCop" );
+            var result = MainClass.Main(new string[] { styleCopSettingsPath, "/foo/bar", "./obj"  });
             var message = this.ReadGeneratedOutput();
 
             Assert.AreEqual(3, result);

@@ -1,4 +1,4 @@
-﻿namespace StyleCop.Baboon
+namespace StyleCop.Baboon
 {
     using System;
     using StyleCop.Baboon.Analyzer;
@@ -16,7 +16,7 @@
 
         public static int Main(string[] args)
         {
-            if (args.Length < 2)
+            if (args.Length < 3)
             {
                 PrintUsage();
 
@@ -25,11 +25,14 @@
 
             var settings = args[0];
             var projectPath = args[1];
+            var ignoredPathsLenght = args.Length - 2;
+            var ignoredPaths = new string[ignoredPathsLenght];
+            Array.Copy(args, 2, ignoredPaths, 0, ignoredPathsLenght);
 
-            return Analyze(settings, projectPath);
+            return Analyze(settings, projectPath, ignoredPaths);
         }
 
-        private static int Analyze(string settings, string projectPath)
+        private static int Analyze(string settings, string projectPath, string[] ignoredPaths)
         {
             var fileSystemHandler = new FileSystemHandler();
             var outputWriter = new StandardOutputWriter();
@@ -50,7 +53,7 @@
 
             var analyzer = new StyleCopAnalyzer();
             var projectFactory = new ProjectFactory(new FileSystemHandler());
-            var project = projectFactory.CreateFromPathWithCustomSettings(projectPath, settings);
+            var project = projectFactory.CreateFromPathWithCustomSettings(projectPath, settings, ignoredPaths);
             var violations = analyzer.GetViolationsFromProject(project);
 
             var renderer = new ConsoleRenderer(outputWriter);
@@ -67,7 +70,7 @@
 
         private static void PrintUsage()
         {
-            Console.WriteLine("Usage: StyleCop.Baboon.exe [stylecop-settings-path] [path-to-analyze]");
+            Console.WriteLine("Usage: StyleCop.Baboon.exe [stylecop-settings-path] [path-to-analyze] [ignored-paths]");
         }
     }
 }
