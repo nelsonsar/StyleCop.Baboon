@@ -7,3 +7,6 @@ before_build:
 build:
   verbosity: minimal
   project: StyleCop.Baboon.sln
+test:
+  assemblies: StyleCop.Baboon.Tests\bin\Debug\StyleCop.Baboon.Tests.dll
+
