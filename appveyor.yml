@@ -6,3 +6,4 @@ before_build:
     nuget restore
 build:
   verbosity: minimal
+  project: StyleCop.Baboon.sln
