@@ -1,5 +1,12 @@
 version: 1.0.{build}
 before_build:
-- cmd: nuget restore
+- cmd: >-
+    hg clone https://hg.codeplex.com/stylecop
+
+    nuget restore
 build:
   verbosity: minimal
+  project: StyleCop.Baboon.sln
+test:
+  assemblies: StyleCop.Baboon.Tests\bin\Debug\StyleCop.Baboon.Tests.dll
+

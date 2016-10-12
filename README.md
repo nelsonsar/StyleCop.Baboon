@@ -6,7 +6,17 @@ StyleCop.Baboon helps you to fix [StyleCop](https://stylecop.codeplex.com/) prob
 
 ## <a name="installation"></a>Installation / Usage
 
-1. Clone this repository and build the solution.
+1. Clone this repository and clone/download the StyleCop repository
+
+    To download StyleCop go to its [web](https://stylecop.codeplex.com/SourceControl/latest) and click in *Download*.
+    Then unzip and rename the folder to just *stylecop*.
+
+    To clone StyleCop repository (Mercurial):
+    ```sh
+    hg clone https://hg.codeplex.com/stylecop
+    ```
+
+2. Build the solution.
 
     On Windows:
 
@@ -22,13 +32,13 @@ StyleCop.Baboon helps you to fix [StyleCop](https://stylecop.codeplex.com/) prob
     $ xbuild "StyleCop.Baboon.sln"
     ```
 
-2. Use your custom StyleCop settings to analyze a file or a directory. This will generate ```StyleCopViolations.xml``` file.
+3. Use your custom StyleCop settings to analyze a file or a directory. This will generate ```StyleCopViolations.xml``` file.
 
     ```
     $ [mono] StyleCop.Baboon.exe Settings.StyleCop StyleCop.Baboon/Program.cs
     ```
 
-3. Fix StyleCop's complaints and stay on the line to avoid more complaints.
+4. Fix StyleCop's complaints and stay on the line to avoid more complaints.
 
 ## Global installation of StyleCop.Baboon (Linux only)
 

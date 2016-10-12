@@ -1,6 +1,7 @@
 language: csharp
 solution: StyleCop.Baboon.sln
 install:
+  - hg clone https://hg.codeplex.com/stylecop
   - nuget restore StyleCop.Baboon.sln
   - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
 script:
