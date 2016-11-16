@@ -6,39 +6,41 @@ StyleCop.Baboon helps you to fix [StyleCop](https://stylecop.codeplex.com/) prob
 
 ## <a name="installation"></a>Installation / Usage
 
-1. Clone this repository and clone/download the StyleCop repository
+1. Clone this repository
 
-    To download StyleCop go to its [web](https://stylecop.codeplex.com/SourceControl/latest) and click in *Download*.
-    Then unzip and rename the folder to just *stylecop*.
+2. From inside the root of the this repository, clone/download the StyleCop repository into a subfolder called `stylecop`.
 
-    To clone StyleCop repository (Mercurial):
-    ```sh
-    hg clone https://hg.codeplex.com/stylecop
-    ```
+    * To download StyleCop go to its [web](https://stylecop.codeplex.com/SourceControl/latest) and click in *Download*. Then unzip and rename the folder to just *stylecop*.
 
-2. Build the solution.
+    * To clone StyleCop repository (Mercurial only):
 
-    On Windows:
+        ```sh
+        hg clone https://hg.codeplex.com/stylecop
+        ```
 
-    ```sh
-    $ nuget restore
-    $ msbuild "StyleCop.Baboon.sln"
-    ```
+3. Build the solution.
 
-    On Linux and OSX after you have installed [Mono](http://www.mono-project.com/download/):
+    * On Windows:
 
-    ```sh
-    $ nuget restore
-    $ xbuild "StyleCop.Baboon.sln"
-    ```
+        ```sh
+        $ nuget restore
+        $ msbuild "StyleCop.Baboon.sln"
+        ```
 
-3. Use your custom StyleCop settings to analyze a file or a directory. This will generate ```StyleCopViolations.xml``` file.
+    * On Linux and OSX after you have installed [Mono](http://www.mono-project.com/download/):
+
+        ```sh
+        $ nuget restore
+        $ xbuild "StyleCop.Baboon.sln"
+        ```
+
+4. Use your custom StyleCop settings to analyze a file or a directory. This will generate ```StyleCopViolations.xml``` file.
 
     ```
     $ [mono] StyleCop.Baboon.exe Settings.StyleCop StyleCop.Baboon/Program.cs
     ```
 
-4. Fix StyleCop's complaints and stay on the line to avoid more complaints.
+5. Enjoy! Fix StyleCop's complaints and stay on the line to avoid more complaints.
 
 ## Global installation of StyleCop.Baboon (Linux only)
 
