@@ -46,13 +46,13 @@
       <HintPath>..\library\Microsoft.Build.Framework.dll</HintPath>
     </Reference>
     <Reference Include="StyleCop.CSharp">
-      <HintPath>..\stylecop\Tools\StyleCop\v4.7\StyleCop.CSharp.dll</HintPath>
+      <HintPath>..\StyleCop\Tools\StyleCop\StyleCop.CSharp.dll</HintPath>
     </Reference>
     <Reference Include="StyleCop.CSharp.Rules">
-      <HintPath>..\stylecop\Tools\StyleCop\v4.7\StyleCop.CSharp.Rules.dll</HintPath>
+      <HintPath>..\StyleCop\Tools\StyleCop\StyleCop.CSharp.Rules.dll</HintPath>
     </Reference>
     <Reference Include="StyleCop">
-      <HintPath>..\stylecop\Tools\StyleCop\v4.7\StyleCop.dll</HintPath>
+      <HintPath>..\StyleCop\Tools\StyleCop\StyleCop.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -1,8 +1,6 @@
 version: 1.0.{build}
 before_build:
 - cmd: >-
-    hg clone https://hg.codeplex.com/stylecop
-
     nuget restore
 build:
   verbosity: minimal
