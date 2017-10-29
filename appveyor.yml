@@ -1,6 +1,8 @@
 version: 1.0.{build}
 before_build:
 - cmd: >-
+    git submodule update --init --recursive
+
     nuget restore
 build:
   verbosity: minimal
