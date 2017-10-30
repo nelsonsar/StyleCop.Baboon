@@ -1,0 +1,3 @@
+[submodule "StyleCop"]
+	path = StyleCop
+	url = https://github.com/StyleCop/StyleCop

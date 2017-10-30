@@ -6,41 +6,22 @@ StyleCop.Baboon helps you to fix [StyleCop](https://stylecop.codeplex.com/) prob
 
 ## <a name="installation"></a>Installation / Usage
 
-1. Clone this repository
+1. Clone this repository with '--recursive' flag or run 'git submodule update --init' to clone the StyleCop submodule too.
 
-2. From inside the root of the this repository, clone/download the StyleCop repository into a subfolder called `stylecop`.
+2. Build the solution.
 
-    * To download StyleCop go to its [web](https://stylecop.codeplex.com/SourceControl/latest) and click in *Download*. Then unzip and rename the folder to just *stylecop*.
+```sh
+$ nuget restore
+$ msbuild "StyleCop.Baboon.sln"
+```
 
-    * To clone StyleCop repository (Mercurial only):
-
-        ```sh
-        hg clone https://hg.codeplex.com/stylecop
-        ```
-
-3. Build the solution.
-
-    * On Windows:
-
-        ```sh
-        $ nuget restore
-        $ msbuild "StyleCop.Baboon.sln"
-        ```
-
-    * On Linux and OSX after you have installed [Mono](http://www.mono-project.com/download/):
-
-        ```sh
-        $ nuget restore
-        $ xbuild "StyleCop.Baboon.sln"
-        ```
-
-4. Use your custom StyleCop settings to analyze a file or a directory. This will generate ```StyleCopViolations.xml``` file.
+3. Use your custom StyleCop settings to analyze a file or a directory. This will generate ```StyleCopViolations.xml``` file.
 
     ```
     $ [mono] StyleCop.Baboon.exe Settings.StyleCop StyleCop.Baboon/Program.cs
     ```
 
-5. Enjoy! Fix StyleCop's complaints and stay on the line to avoid more complaints.
+4. Enjoy! Fix StyleCop's complaints and stay on the line to avoid more complaints.
 
 ## Global installation of StyleCop.Baboon (Linux only)
 

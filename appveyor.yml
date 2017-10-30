@@ -1,7 +1,7 @@
 version: 1.0.{build}
 before_build:
 - cmd: >-
-    hg clone https://hg.codeplex.com/stylecop
+    git submodule update --init --recursive
 
     nuget restore
 build:
