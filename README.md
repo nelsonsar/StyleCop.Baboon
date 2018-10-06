@@ -6,7 +6,7 @@ StyleCop.Baboon helps you to fix [StyleCop](https://stylecop.codeplex.com/) prob
 
 ## <a name="installation"></a>Installation / Usage
 
-1. Clone this repository with '--recursive' flag or run 'git submodule update --init' to clone the StyleCop submodule too.
+1. Clone this repository.
 
 2. Build the solution.
 
