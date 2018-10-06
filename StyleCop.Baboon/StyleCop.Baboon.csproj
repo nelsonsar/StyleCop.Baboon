@@ -42,17 +42,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="Microsoft.Build.Framework">
-      <HintPath>..\library\Microsoft.Build.Framework.dll</HintPath>
-    </Reference>
-    <Reference Include="StyleCop.CSharp">
-      <HintPath>..\StyleCop\Tools\StyleCop\StyleCop.CSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="StyleCop.CSharp.Rules">
-      <HintPath>..\StyleCop\Tools\StyleCop\StyleCop.CSharp.Rules.dll</HintPath>
-    </Reference>
     <Reference Include="StyleCop">
-      <HintPath>..\StyleCop\Tools\StyleCop\StyleCop.dll</HintPath>
+      <HintPath>..\packages\StyleCop.5.0.0\lib\net40\StyleCop.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -78,6 +69,9 @@
     <Folder Include="Analyzer\StyleCop\" />
     <Folder Include="Infrastructure\" />
     <Folder Include="Renderer\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
@@ -146,4 +140,5 @@
       </Properties>
     </MonoDevelop>
   </ProjectExtensions>
+  <Import Project="..\packages\StyleCop.MSBuild.5.0.0\build\StyleCop.MSBuild.targets" Condition="Exists('..\packages\StyleCop.MSBuild.5.0.0\build\StyleCop.MSBuild.targets')" />
 </Project>
